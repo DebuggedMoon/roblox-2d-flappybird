@@ -1,0 +1,14 @@
+{
+	"name": "flappy-robird",
+	"tree": {
+		"$className": "DataModel",
+  
+		"StarterPlayer": {
+			"StarterPlayerScripts": {
+				"Flappy Robird": {
+					"$path": "default.project.json"
+		  		}
+			}
+	  	}
+	}
+}
