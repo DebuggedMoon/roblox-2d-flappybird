@@ -307,7 +307,7 @@ export type Type =
 		ImageColor3: Color3?,
 		ImageRectOffset: Vector2?,
 		ImageRectSize: Vector2?,
-		ImageTransparency: boolean?,
+		ImageTransparency: number?,
 		ResampleMode: Enum.ResamplerMode?,
 		ScaleType: Enum.ScaleType?,
 
@@ -363,7 +363,7 @@ export type Type =
 		ImageColor3: Color3?,
 		ImageRectOffset: Vector2?,
 		ImageRectSize: Vector2?,
-		ImageTransparency: boolean?,
+		ImageTransparency: number?,
 		PressedImage: string?,
 		ResampleMode: Enum.ResamplerMode?,
 		ScaleType: Enum.ScaleType?,
