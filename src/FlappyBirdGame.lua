@@ -55,7 +55,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 	end)
 
 	self.clickConnection = self.interactionLayer.MouseButton1Click:Connect(function()
-		self.bird.element.Position -= UDim2.fromScale(0, 0.2)
+		self.bird:addElevation(-0.2)
 	end)
 
 	return self
@@ -63,15 +63,7 @@ end
 
 function FlappyBirdGame:tick(delta: number)
 		
-	print(delta)
-	self.bird.element.Position = UDim2.fromScale(
-		0, 
-		math.min(
-			1,
-			self.bird.element.Position.Y.Scale + self.gravity * delta
-		)
-	)
-
+	self.bird:addElevation(self.gravity * delta)
 end
 
 return FlappyBirdGame

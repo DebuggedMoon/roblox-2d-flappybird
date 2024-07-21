@@ -23,4 +23,36 @@ function Bird.new()
 	return self
 end
 
+function Bird:setPosition(newPosition: Vector2)
+
+	if newPosition.Y > 1 then
+		self:setPosition(Vector2.new(newPosition.X, 1))
+		return
+	end
+	
+	self.position = newPosition
+	self.element.Position = UDim2.fromScale(newPosition.X, newPosition.Y)
+end
+
+function Bird:getPosition(): Vector2
+
+
+	return self.position
+end
+
+function Bird:setElevation(elevation: number)
+
+	self:setPosition(Vector2.new(self.position.X, elevation))
+end
+
+function Bird:getElevation(): number
+
+	return self.position.Y
+end
+
+function Bird:addElevation(elevation: number)
+
+	self:setPosition(Vector2.new(self.position.X, self.position.Y + elevation))
+end
+
 return Bird
