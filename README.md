@@ -15,7 +15,7 @@
 	* [Development](#development)
 
 ## Features
-- [ ] Moving Bird
+- [x] Moving Bird
 - [ ] Moving Pipes
 - [ ] Scores
 - [ ] Personal Highscore
