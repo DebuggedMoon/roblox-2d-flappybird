@@ -16,7 +16,7 @@ local hostContainer = createGUIElement({
 
 local game = FlappyBirdGame.new({
 	scrollSpeed = 0.3,
-	gravity = 0.5
+	gravity = 0.05
 })
 
 game.gameArea.Parent = hostContainer

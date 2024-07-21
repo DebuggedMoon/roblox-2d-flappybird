@@ -1,6 +1,8 @@
 
 local createGUIElement = require(script.Parent.library.createGUIElement)
 
+local FLAP_POWER = 0.018
+
 local Bird = {}
 Bird.__index = Bird
 
@@ -23,10 +25,22 @@ function Bird.new()
 	return self
 end
 
+function Bird:flap()
+
+	self.velocity = -FLAP_POWER
+end
+
+function Bird:tick(delta: number, gravity: number)
+
+	self.velocity += gravity * delta
+	self:addElevation(self.velocity)
+end
+
 function Bird:setPosition(newPosition: Vector2)
 
 	if newPosition.Y > 1 then
 		self:setPosition(Vector2.new(newPosition.X, 1))
+		self.velocity = 0
 		return
 	end
 	

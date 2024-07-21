@@ -55,7 +55,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 	end)
 
 	self.clickConnection = self.interactionLayer.MouseButton1Click:Connect(function()
-		self.bird:addElevation(-0.2)
+		self.bird:flap()
 	end)
 
 	return self
@@ -63,7 +63,7 @@ end
 
 function FlappyBirdGame:tick(delta: number)
 		
-	self.bird:addElevation(self.gravity * delta)
+	self.bird:tick(delta, self.gravity)
 end
 
 return FlappyBirdGame
