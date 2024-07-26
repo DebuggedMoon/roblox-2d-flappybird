@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 
 local createGUIElement = require(script.Parent.library.createGUIElement)
 local Bird = require(script.Parent.Bird)
+local Pipe = require(script.Parent.Pipe)
 
 local DEFAULT_SCROLL_SPEED = 0.4
 local DEFAULT_GRAVITY = 0.5
@@ -20,6 +21,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 
 	local self = setmetatable({}, FlappyBirdGame)
 
+	self.pipes = {}
 	self.bird = Bird.new()
 	self.scrollSpeed = gameProperties.scrollSpeed or DEFAULT_SCROLL_SPEED
 	self.gravity = gameProperties.gravity or DEFAULT_GRAVITY
@@ -64,6 +66,14 @@ end
 function FlappyBirdGame:tick(delta: number)
 		
 	self.bird:tick(delta, self.gravity)
+end
+
+function FlappyBirdGame:spawnPipe(position: Vector2, pipeGap: number)
+
+	local pipe = Pipe.new(position, pipeGap)
+
+	table.insert(self.pipes, pipe)
+	pipe.element.Parent = self.element
 end
 
 return FlappyBirdGame
