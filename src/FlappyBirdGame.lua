@@ -64,16 +64,21 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 end
 
 function FlappyBirdGame:tick(delta: number)
-		
+	
+	for _, pipe in pairs(self.pipes) do
+		pipe:tick()
+	end
+	
 	self.bird:tick(delta, self.gravity)
 end
 
 function FlappyBirdGame:spawnPipe(position: Vector2, pipeGap: number)
 
 	local pipe = Pipe.new(position, pipeGap)
+	print(pipe, pipe.element)
 
 	table.insert(self.pipes, pipe)
-	pipe.element.Parent = self.element
+	pipe.element.Parent = self.gameArea
 end
 
 return FlappyBirdGame

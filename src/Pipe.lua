@@ -1,7 +1,7 @@
 
 local createGUIElement = require(script.Parent.library.createGUIElement)
 
-local MOVE_DIRECTION = Vector2.new(-0.02, 0)
+local MOVE_DIRECTION = Vector2.new(0.0025, 0)
 
 local Pipe = {}
 Pipe.__index = Pipe
@@ -30,12 +30,13 @@ end
 
 function Pipe:moveByVector2(moveVector: Vector2)
 
-	self:setPosition(self.Position - moveVector)
+	self:setPosition(self.position - moveVector)
 end
 
 function Pipe:setPosition(newPosition: Vector2)
 
 	self.position = newPosition
+	self.element.Position = UDim2.fromScale(newPosition.X, newPosition.Y)
 end
 
 return Pipe
