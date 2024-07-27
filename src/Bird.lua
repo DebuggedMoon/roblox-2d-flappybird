@@ -19,7 +19,8 @@ function Bird.new()
 		AnchorPoint = Vector2.new(0, 1),
 		Position = UDim2.fromScale(self.position.X, self.position.Y),
 		Size = UDim2.new(0.089, 0, 0.067, 0), -- Bird size should be 90x60px on a 900px canvas
-		BackgroundColor3 = Color3.fromRGB(197, 182, 51)
+		BackgroundColor3 = Color3.fromRGB(197, 182, 51),
+		ZIndex = 3
 	}) :: Frame
 
 	return self
