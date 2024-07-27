@@ -75,7 +75,6 @@ end
 function FlappyBirdGame:spawnPipe(position: Vector2, pipeGap: number)
 
 	local pipe = Pipe.new(position, pipeGap)
-	print(pipe, pipe.element)
 
 	table.insert(self.pipes, pipe)
 	pipe.element.Parent = self.gameArea
