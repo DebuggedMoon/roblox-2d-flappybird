@@ -18,6 +18,14 @@ function Pipe.new(position: Vector2, pipeGap: number)
 		Position = UDim2.fromScale(self.position.X, self.position.Y),
 		Size = UDim2.new(0.1, 0, 1, 0),
 		BackgroundColor3 = Color3.fromRGB(0, 182, 0)
+	}, {
+		createGUIElement({
+			ClassName = "Frame",
+			Name = "Gap",
+			Position = UDim2.fromScale(0, 0.5),
+			Size = UDim2.fromScale(1, pipeGap),
+			BackgroundColor3 = Color3.fromRGB(0, 100, 210)
+		})
 	}) :: Frame
 
 	return self

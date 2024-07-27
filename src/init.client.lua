@@ -19,6 +19,6 @@ local game = FlappyBirdGame.new({
 	gravity = 0.05
 })
 
-game:spawnPipe(Vector2.new(0.5, 0), 0)
+game:spawnPipe(Vector2.new(0.5, 0), 0.2)
 
 game.gameArea.Parent = hostContainer
