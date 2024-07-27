@@ -22,9 +22,11 @@ function Pipe.new(position: Vector2, pipeGap: number)
 		createGUIElement({
 			ClassName = "Frame",
 			Name = "Gap",
-			Position = UDim2.fromScale(0, 0.5),
-			Size = UDim2.fromScale(1, pipeGap),
-			BackgroundColor3 = Color3.fromRGB(0, 100, 210)
+			AnchorPoint = Vector2.new(0.5, 0),
+			Position = UDim2.fromScale(0.5, 0.5),
+			Size = UDim2.fromScale(1.1, pipeGap),
+			BorderSizePixel = 0,
+			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
 		})
 	}) :: Frame
 
