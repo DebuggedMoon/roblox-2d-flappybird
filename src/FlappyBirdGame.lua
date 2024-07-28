@@ -69,6 +69,10 @@ function FlappyBirdGame:tick(delta: number)
 	
 	for _, pipe in pairs(self.pipes) do
 		pipe:tick()
+
+		if pipe.position.X < -0.25 then
+			pipe.element:Destroy()
+		end
 	end
 	
 	self.bird:tick(delta, self.gravity)
