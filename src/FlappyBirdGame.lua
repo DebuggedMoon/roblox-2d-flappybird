@@ -40,7 +40,8 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 			Size = UDim2.fromOffset(337.5, 337.5),
 			AnchorPoint = Vector2.new(0.5, 0.5),
 			Position = UDim2.new(0.5, 0, 0.5, 0),
-			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
+			BackgroundColor3 = Color3.fromRGB(114, 197, 206),
+			ClipsDescendants = true
 		},
 		{
 			createGUIElement({
