@@ -49,4 +49,14 @@ function Pipe:setPosition(newPosition: Vector2)
 	self.element.Position = UDim2.fromScale(newPosition.X, newPosition.Y)
 end
 
+function Pipe:destroy()
+
+	self.element:Destroy()
+	self.position = nil
+	self.element = nil
+	self.gap = nil
+
+	setmetatable(self, {})
+end
+
 return Pipe
