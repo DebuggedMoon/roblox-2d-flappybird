@@ -1,6 +1,9 @@
 
+local generateRandomNumber = require(script.Parent.library.generateRandomNumber)
 local createGUIElement = require(script.Parent.library.createGUIElement)
 
+local PIPE_GAP_START = 0
+local PIPE_GAP_END = 0.6
 local MOVE_DIRECTION = Vector2.new(0.0025, 0)
 
 local Pipe = {}
@@ -11,6 +14,7 @@ function Pipe.new(position: Vector2, pipeGap: number)
 	local self = setmetatable({}, Pipe)
 
 	self.gap = pipeGap
+	self.gapPosition = generateRandomNumber(PIPE_GAP_START, PIPE_GAP_END)
 	self.position = position
 	self.element = createGUIElement({
 		ClassName = "Frame",
@@ -23,7 +27,7 @@ function Pipe.new(position: Vector2, pipeGap: number)
 			ClassName = "Frame",
 			Name = "Gap",
 			AnchorPoint = Vector2.new(0.5, 0),
-			Position = UDim2.fromScale(0.5, 0.5),
+			Position = UDim2.fromScale(0.5, self.gapPosition),
 			Size = UDim2.fromScale(1.1, pipeGap),
 			BorderSizePixel = 0,
 			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
