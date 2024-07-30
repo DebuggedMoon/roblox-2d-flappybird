@@ -28,7 +28,7 @@ function Pipe.new(position: Vector2, pipeGap: number)
 			Name = "Gap",
 			AnchorPoint = Vector2.new(0.5, 0),
 			Position = UDim2.fromScale(0.5, self.gapPosition),
-			Size = UDim2.fromScale(1.1, pipeGap),
+			Size = UDim2.fromScale(1, pipeGap),
 			BorderSizePixel = 0,
 			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
 		})
