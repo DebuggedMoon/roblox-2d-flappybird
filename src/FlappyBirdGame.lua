@@ -26,6 +26,15 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 	self.scrollSpeed = gameProperties.scrollSpeed or DEFAULT_SCROLL_SPEED
 	self.gravity = gameProperties.gravity or DEFAULT_GRAVITY
 
+	self.backgroundLayer = createGUIElement({
+		ClassName = "Frame",
+		BackgroundColor3 = Color3.fromRGB(114, 197, 206),
+		Size = UDim2.fromScale(1, 1),
+		ZIndex = -1
+	}, {
+
+	})
+
 	self.interactionLayer = createGUIElement({
 		ClassName = "ImageButton",
 		BackgroundTransparency = 1,
@@ -40,7 +49,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 			Size = UDim2.fromOffset(337.5, 337.5),
 			AnchorPoint = Vector2.new(0.5, 0.5),
 			Position = UDim2.new(0.5, 0, 0.5, 0),
-			BackgroundColor3 = Color3.fromRGB(114, 197, 206),
+			BackgroundTransparency = 1,
 			ClipsDescendants = true
 		},
 		{
@@ -48,7 +57,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 				ClassName = "UIAspectRatioConstraint",
 				AspectRatio = 1
 			}),
-	
+			self.backgroundLayer,
 			self.interactionLayer,
 			self.bird.element
 		}
