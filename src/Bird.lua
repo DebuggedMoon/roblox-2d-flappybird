@@ -1,6 +1,7 @@
 
 local createGUIElement = require(script.Parent.library.createGUIElement)
 
+local FLOOR_OFFSET = 1 - (110 / 900)
 local FLAP_POWER = 0.018
 
 local Bird = {}
@@ -39,8 +40,8 @@ end
 
 function Bird:setPosition(newPosition: Vector2)
 
-	if newPosition.Y > 1 then
-		self:setPosition(Vector2.new(newPosition.X, 1))
+	if newPosition.Y > FLOOR_OFFSET then
+		self:setPosition(Vector2.new(newPosition.X, FLOOR_OFFSET))
 		self.velocity = 0
 		return
 	end
