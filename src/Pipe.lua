@@ -15,6 +15,7 @@ function Pipe.new(position: Vector2, pipeGap: number)
 
 	self.gap = pipeGap
 	self.gapPosition = generateRandomNumber(PIPE_GAP_START, PIPE_GAP_END)
+
 	self.position = position
 	self.element = createGUIElement({
 		ClassName = "Frame",
@@ -28,7 +29,7 @@ function Pipe.new(position: Vector2, pipeGap: number)
 			Name = "Gap",
 			AnchorPoint = Vector2.new(0.5, 0),
 			Position = UDim2.fromScale(0.5, self.gapPosition),
-			Size = UDim2.fromScale(1, pipeGap),
+			Size = UDim2.new(1, 2, pipeGap, 0),
 			BorderSizePixel = 0,
 			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
 		})
