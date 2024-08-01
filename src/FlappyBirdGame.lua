@@ -3,6 +3,7 @@
 local RunService = game:GetService("RunService")
 
 local createGUIElement = require(script.Parent.library.createGUIElement)
+local GameFloor = require(script.Parent.components.GameFloor)
 local Bird = require(script.Parent.Bird)
 local Pipe = require(script.Parent.Pipe)
 
@@ -32,7 +33,7 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 		Size = UDim2.fromScale(1, 1),
 		ZIndex = -1
 	}, {
-
+		GameFloor()
 	})
 
 	self.interactionLayer = createGUIElement({
