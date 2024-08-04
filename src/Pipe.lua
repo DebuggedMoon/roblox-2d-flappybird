@@ -17,11 +17,13 @@ function Pipe.new(position: Vector2, pipeGap: number)
 	self.gapPosition = generateRandomNumber(PIPE_GAP_START, PIPE_GAP_END)
 
 	self.position = position
+	self.width = 0.1
+
 	self.element = createGUIElement({
 		ClassName = "Frame",
 		Name = "Pipe",
 		Position = UDim2.fromScale(self.position.X, self.position.Y),
-		Size = UDim2.new(0.1, 0, 1, 0),
+		Size = UDim2.new(self.width, 0, 1, 0),
 		BackgroundColor3 = Color3.fromRGB(0, 182, 0)
 	}, {
 		createGUIElement({
@@ -41,6 +43,15 @@ end
 function Pipe:tick() 
 
 	self:moveByVector2(MOVE_DIRECTION)
+end
+
+function Pipe:isInBounds(position: Vector2): boolean
+
+	if (position.X < self.position.X or position.X > self.position.X + self.width) then
+		return false
+	end
+
+	return true
 end
 
 function Pipe:moveByVector2(moveVector: Vector2)
