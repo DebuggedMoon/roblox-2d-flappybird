@@ -18,7 +18,7 @@ function Bird.new()
 		ClassName = "Frame",
 		Name = "Bird",
 		BorderSizePixel = 0,
-		AnchorPoint = Vector2.new(0, 1),
+		AnchorPoint = Vector2.new(0, 1), -- TODO: Make redundant. Do the collision calc instead of using AnchorPoint
 		Position = UDim2.fromScale(self.position.X, self.position.Y),
 		Size = UDim2.new(0.089, 0, 0.067, 0), -- Bird size should be 90x60px on a 900px canvas
 		BackgroundColor3 = Color3.fromRGB(197, 182, 51),

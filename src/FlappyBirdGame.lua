@@ -83,11 +83,17 @@ function FlappyBirdGame:tick(delta: number)
 		if pipe.position.X < -0.25 then
 			pipe.element:Destroy()
 		end
-		
+
 		print(pipe:isInBounds(self.bird.position))
 	end
 
 	self.bird:tick(delta, self.gravity)
+end
+
+function FlappyBirdGame:isBirdCollidingWithPipe()
+
+	--TODO: Implement
+
 end
 
 function FlappyBirdGame:spawnPipe(position: Vector2, pipeGap: number)
