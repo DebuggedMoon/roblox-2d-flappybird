@@ -2,7 +2,8 @@
 
 local createGUIElement = require(script.Parent.Parent.library.createGUIElement)
 
-return function()
+function createComponent()
+
 	return createGUIElement({
 		ClassName = "Frame",
 		BorderSizePixel = 0,
@@ -13,3 +14,6 @@ return function()
 		ZIndex = 10
 	})
 end
+
+
+return createComponent
