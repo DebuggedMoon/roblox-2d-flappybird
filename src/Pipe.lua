@@ -1,6 +1,6 @@
 
 local generateRandomNumber = require(script.Parent.library.generateRandomNumber)
-local createGUIElement = require(script.Parent.library.createGUIElement)
+local makeUi = require(script.Parent.library.makeUi)
 
 local PIPE_GAP_START = 0
 local PIPE_GAP_END = 0.6
@@ -19,23 +19,27 @@ function Pipe.new(position: Vector2, pipeGap: number)
 	self.position = position
 	self.width = 0.1
 
-	self.element = createGUIElement({
-		ClassName = "Frame",
+	self.element = makeUi "Frame"
+	{
 		Name = "Pipe",
 		Position = UDim2.fromScale(self.position.X, self.position.Y),
 		Size = UDim2.new(self.width, 0, 1, 0),
 		BackgroundColor3 = Color3.fromRGB(0, 182, 0)
-	}, {
-		createGUIElement({
-			ClassName = "Frame",
+	}
+	{
+		makeUi "Frame"
+		{
 			Name = "Gap",
 			AnchorPoint = Vector2.new(0.5, 0),
 			Position = UDim2.fromScale(0.5, self.gapPosition),
 			Size = UDim2.new(1, 2, pipeGap, 0),
 			BorderSizePixel = 0,
 			BackgroundColor3 = Color3.fromRGB(114, 197, 206)
-		})
-	}) :: Frame
+		}
+		{
+
+		}
+	}
 
 	return self
 end

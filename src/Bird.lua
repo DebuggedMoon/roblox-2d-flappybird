@@ -1,7 +1,7 @@
 --!strict
 
 local BirdInterface = require(script.Parent.interfaces.BirdInterface)
-local createGUIElement = require(script.Parent.library.createGUIElement)
+local makeUi = require(script.Parent.library.makeUi)
 
 local FLOOR_OFFSET = 1 - (110 / 900)
 local FLAP_POWER = 0.018
@@ -15,8 +15,8 @@ function Bird.new()
 	self.position = Vector2.new(0.25, 0.5)
 	self.velocity = 0
 
-	self.element = createGUIElement({
-		ClassName = "Frame",
+	self.element = makeUi "Frame" 
+	{
 		Name = "Bird",
 		BorderSizePixel = 0,
 		AnchorPoint = Vector2.new(0, 1), -- TODO: Make redundant. Do the collision calc instead of using AnchorPoint
@@ -24,7 +24,10 @@ function Bird.new()
 		Size = UDim2.new(0.089, 0, 0.067, 0), -- Bird size should be 90x60px on a 900px canvas
 		BackgroundColor3 = Color3.fromRGB(197, 182, 51),
 		ZIndex = 3
-	}) :: Frame
+	}
+	{
+
+	}
 
 	return self
 end

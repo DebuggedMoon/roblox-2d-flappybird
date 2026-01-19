@@ -9,7 +9,7 @@ export type BirdInstance = {
 
 	position: Vector2;
 	velocity: number;
-	element: GuiObject;
+	element: Frame;
 
 	flap: (self: BirdInstance) -> ();
 	tick: (self: BirdInstance, delta: number, gravity: number) -> ();

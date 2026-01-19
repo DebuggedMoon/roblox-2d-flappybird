@@ -2,8 +2,7 @@
 
 local RunService = game:GetService("RunService")
 
-local createGUIElement = require(script.Parent.library.createGUIElement)
-local GameFloorComponent = require(script.Parent.components.GameFloorComponent)
+local makeUi = require(script.Parent.library.makeUi)
 local Bird = require(script.Parent.Bird)
 local Pipe = require(script.Parent.Pipe)
 
@@ -27,42 +26,58 @@ function FlappyBirdGame.new(gameProperties: GameProperties)
 	self.scrollSpeed = gameProperties.scrollSpeed or DEFAULT_SCROLL_SPEED
 	self.gravity = gameProperties.gravity or DEFAULT_GRAVITY
 
-	self.backgroundLayer = createGUIElement({
-		ClassName = "Frame",
+	self.backgroundLayer = makeUi "Frame"
+	{
 		BackgroundColor3 = Color3.fromRGB(114, 197, 206),
 		Size = UDim2.fromScale(1, 1),
 		ZIndex = -1
-	}, {
-		GameFloorComponent()
-	})
+	}
+	{
+		makeUi "Frame"
+		{
+			BorderSizePixel = 0,
+			AnchorPoint = Vector2.new(0, 1),
+			Position = UDim2.fromScale(0, 1),
+			Size = UDim2.fromScale(1, 110 /  900),
+			BackgroundColor3 = Color3.fromRGB(222, 217, 150),
+			ZIndex = 10
+		}
+		{
+			
+		}
+	}
 
-	self.interactionLayer = createGUIElement({
-		ClassName = "ImageButton",
+	self.interactionLayer = makeUi "ImageButton" 
+	{
 		BackgroundTransparency = 1,
 		ImageTransparency = 1,
 		Size = UDim2.fromScale(1, 1),
 		ZIndex = 5
-	}) :: ImageButton
+	}
+	{
 
-	self.gameArea = createGUIElement(
+	}
+
+	self.gameArea = makeUi "Frame"
+	{
+		Size = UDim2.fromOffset(337.5, 337.5),
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		Position = UDim2.new(0.5, 0, 0.5, 0),
+		BackgroundTransparency = 1,
+		ClipsDescendants = true
+	}
+	{
+		makeUi "UIAspectRatioConstraint"
 		{
-			ClassName = "Frame",
-			Size = UDim2.fromOffset(337.5, 337.5),
-			AnchorPoint = Vector2.new(0.5, 0.5),
-			Position = UDim2.new(0.5, 0, 0.5, 0),
-			BackgroundTransparency = 1,
-			ClipsDescendants = true
-		},
-		{
-			createGUIElement({
-				ClassName = "UIAspectRatioConstraint",
-				AspectRatio = 1
-			}),
-			self.backgroundLayer,
-			self.interactionLayer,
-			self.bird.element
+			AspectRatio = 1
 		}
-	) :: Frame
+		{
+
+		},
+		self.backgroundLayer,
+		self.interactionLayer,
+		self.bird.element
+	}
 
 	self.tickConnection = RunService.PreRender:Connect(function(delta: number)
 		self:tick(delta)
