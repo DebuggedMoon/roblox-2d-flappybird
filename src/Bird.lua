@@ -1,16 +1,16 @@
 --!strict
 
-local BirdInterface = require(script.Parent.interfaces.BirdInterface)
+local Interfaces = require(script.Parent.Interfaces)
 local makeUi = require(script.Parent.library.makeUi)
 
 local FLOOR_OFFSET = 1 - (110 / 900)
 local FLAP_POWER = 0.018
 
-local Bird = {} :: BirdInterface.BirdInstance & BirdInterface.Bird
+local Bird = {} :: Interfaces.BirdInstance & Interfaces.Bird
 
 function Bird.new()
 
-	local self: BirdInterface.BirdInstance = setmetatable({}, {__index = Bird}) :: any
+	local self: Interfaces.BirdInstance = setmetatable({}, {__index = Bird}) :: any
 
 	self.position = Vector2.new(0.25, 0.5)
 	self.velocity = 0
@@ -75,4 +75,4 @@ function Bird:addElevation(elevation: number)
 	self:setPosition(Vector2.new(self.position.X, self.position.Y + elevation))
 end
 
-return Bird :: BirdInterface.Bird;
+return Bird :: Interfaces.Bird;
